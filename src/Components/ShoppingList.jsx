@@ -5,7 +5,7 @@ import '../styles/ShoppingList.css'
 function ShoppingList() {
     return (
         <div className="shopping-list">
-            <h2>Nos Sneakers</h2>
+            <h2>Nos Sneakers (Adem Zentici)</h2>
             <div className="sneakers-grid">
                 {sneakersList.map((sneaker) => (
                     <SneakerItem
@@ -14,6 +14,8 @@ function ShoppingList() {
                         marque={sneaker.marque}
                         prix={sneaker.prix}
                         style={sneaker.style}    
+                        esthetique={sneaker.esthetique}
+                        confort={sneaker.confort}
                     />
                 ))}
             </div>

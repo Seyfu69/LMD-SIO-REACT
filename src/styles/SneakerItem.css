@@ -1,24 +1,31 @@
 .sneaker-item {
-
-  position: relative;  /* Nécessaire pour le positionnement du badge */
-
-  background: white;
-
-  border-radius: 12px;
-
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-
-  padding: 15px;  /* Réduit de 20px à 15px */
-
-  transition: all 0.3s ease;
-
-  border: 1px solid #e5e7eb;
-
-  width: 100%;
-
-  height: fit-content;
-
-  box-sizing: border-box;
+    position: relative;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    transition: all 0.3s ease;
+    border: 1px solid #e5e7eb;
+    width: 100%;
+    height: fit-content;
+    box-sizing: border-box;
+    color: black;
 
 }
 
+/* Selectionne Le parent 'a' de sneaker-item */
+a:has(.sneaker-item)
+{
+    text-decoration: none;
+}
+
+.sneaker-item:hover {
+    scale: 1.1;
+    background: rgb(247, 247, 247);
+    rotate: 2deg;
+}
+
+.sneaker-item:active {
+    background: rgb(223, 223, 223);
+    scale: 1;
+}
