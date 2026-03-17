@@ -90,7 +90,7 @@ export const sneakersList = [
   },
   {
     id: "8",
-    nom: "Baskets Ã  Patch Logo",
+    nom: "Baskets À Patch Logo",
     marque: "Givenchy",
     prix: 374,
     style: "Urbain",

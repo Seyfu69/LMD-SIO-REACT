@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import logo from '../assets/logosneaker.jpg';
 import '../styles/App.css';
 import Banner from './Banner';
@@ -12,5 +13,4 @@ function App() {
 
   );
 }
-
 export default App;
