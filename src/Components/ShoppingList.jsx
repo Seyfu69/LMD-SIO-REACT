@@ -6,7 +6,7 @@ function ShoppingList() {
     return (
         <div className="shopping-list">
             <h2>Nos Sneakers (Adem Zentici)</h2>
-            <nav></nav>
+            
             <div className="sneakers-grid">
                 {sneakersList.map((sneaker) => (
                     <SneakerItem

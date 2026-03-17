@@ -1,21 +1,22 @@
+import { useState } from 'react';
 import '../styles/SneakerItem.css'
 import CustomerReview from './CustomerReview';
 
 function SneakerItem({nom, image, marque, prix, style, esthetique, confort, bestSeller=false})
 {
+    const [showReviews, setShowReviews] = useState(false);
     const formatReview = (reviewType, scaleValue) => {
         const scaleType = reviewType === 'confort' ? '😌': '💖';
         const icons = scaleType.repeat(scaleValue);
         return `${reviewType}: ${icons} (${scaleValue}/5)`;
     };
 
-    const handleClickAvis = () => {
-        const esthetismeText = formatReview('esthétisme', esthetique);
-        const confortText = formatReview('confort', confort);
-        alert(`Avis pour ${nom} :\n${esthetismeText}\n${confortText}`);
+    const handleToggleAvis = () => {
+        setShowReviews(!showReviews);
     };
+
     return (
-        <a href="/">
+        
             <div className={`sneaker-item ${bestSeller ? 'best-seller' : ''}`}>
                 <br />
                 <h3>{nom}</h3>
@@ -26,11 +27,17 @@ function SneakerItem({nom, image, marque, prix, style, esthetique, confort, best
                     <p className="sneaker-price">{prix} €</p>
                     <p className="sneaker-style">{style}</p>
                     <div className="sneaker-review">
-                        <button className="button-review" onClick={handleClickAvis}>Voir les avis</button>
+                        <button className='button' onClick={handleToggleAvis}>{showReviews ? 'masquer les avis' : 'voir les avis'}</button>
+                        {showReviews && (
+                            <div className="avis-details">
+                                <CustomerReview reviewType='esthétisme' scaleValue={esthetique} />
+                                <CustomerReview reviewType='confort' scaleValue={confort} />
+                            </div>
+                        )}
                     </div>
                 </div>
             </div>
-        </a>
+        
     );
 }
 

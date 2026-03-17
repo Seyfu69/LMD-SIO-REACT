@@ -108,7 +108,7 @@
   
 
 }
-.button-review {
+.button {
   width: 100px;
   height: 50px;
   border: 3px solid #a2a2a2d1;
@@ -119,8 +119,15 @@
   font-size: 1.2em;
   font-weight: 550;
 }
-.button-review:hover {
+.button:hover {
   background: #848484;
   color: white;
   font-size: 1.1em;
+}
+
+.avis-details {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 10px;
 }
