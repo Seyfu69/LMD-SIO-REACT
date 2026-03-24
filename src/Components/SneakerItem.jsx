@@ -2,9 +2,11 @@ import { useState } from 'react';
 import '../styles/SneakerItem.css'
 import CustomerReview from './CustomerReview';
 
-function SneakerItem({nom, image, marque, prix, style, esthetique, confort, bestSeller=false})
+function SneakerItem({ sneakerData, onAddToCart })
 {
     const [showReviews, setShowReviews] = useState(false);
+    const { nom, marque, prix, style, esthetique, confort, image, bestSeller = false} = sneakerData;
+
     const formatReview = (reviewType, scaleValue) => {
         const scaleType = reviewType === 'confort' ? '😌': '💖';
         const icons = scaleType.repeat(scaleValue);
@@ -14,6 +16,12 @@ function SneakerItem({nom, image, marque, prix, style, esthetique, confort, best
     const handleToggleAvis = () => {
         setShowReviews(!showReviews);
     };
+    
+    const handleAddToCart = () => {
+        console.log("Données transmises: ", sneakerData)
+        onAddToCart(sneakerData);
+    };
+
 
     return (
         
@@ -26,6 +34,11 @@ function SneakerItem({nom, image, marque, prix, style, esthetique, confort, best
                     <p className="sneaker-brand">{marque}</p>
                     <p className="sneaker-price">{prix} €</p>
                     <p className="sneaker-style">{style}</p>
+                    <div className="sneaker-actions">
+                        <button onClick={handleAddToCart} className="add-to-cart-btn">
+                            🛒 Ajouter au panier
+                        </button>
+                    </div>
                     <div className="sneaker-review">
                         <button className='button' onClick={handleToggleAvis}>{showReviews ? 'masquer les avis' : 'voir les avis'}</button>
                         {showReviews && (

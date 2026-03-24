@@ -5,7 +5,7 @@ import '../styles/ShoppingList.css';
 
 const brands = [...new Set(sneakersList.map(sneaker => sneaker.marque))];
 
-function ShoppingList() {
+function ShoppingList({onAddToCart}) {
     const [activeBrand, setActiveBrand] = useState('');
 
     const filteredSneakers = sneakersList.filter(
@@ -34,14 +34,8 @@ function ShoppingList() {
                 {filteredSneakers.map((sneaker) => (
                     <SneakerItem
                         key={sneaker.id}
-                        nom={sneaker.nom}
-                        marque={sneaker.marque}
-                        prix={sneaker.prix}
-                        style={sneaker.style}
-                        esthetique={sneaker.esthetique}
-                        confort={sneaker.confort}
-                        image={sneaker.image}
-                        bestSeller={sneaker.bestSeller}
+                        sneakerData={sneaker}
+                        onAddToCart={onAddToCart}
                     />
                 ))}
             </div>
